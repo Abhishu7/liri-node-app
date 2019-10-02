@@ -15,11 +15,11 @@ Search for song in the terminal through Spotify using the command 'spotify-this-
 ![alt text](https://i.imgur.com/EKPDAYs.jpg)
 
 # Built With 
-Visual Studio Code 
-Javascript
-Node.js
-Axios
-Spotify
+* Visual Studio Code 
+* Javascript
+* Node.js
+* Axios
+* Spotify
 
 # Authors 
 Abhishu Mukherjee
