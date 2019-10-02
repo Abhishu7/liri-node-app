@@ -1,10 +1,10 @@
 require("dotenv").config();
 var keys = require("./keys.js");
-var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 var axios = require("axios");
-var moment = requuire("moment");
+var moment = require("moment");
 var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
 var operand = process.argv[2];
 var input = process.argv[3];
 
@@ -49,7 +49,7 @@ function movieThis(movie) {
 
 function concertThis(artist) {
     axios
-        .get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+        .get("https://rest.bandsintown.com/artists/"+artist+"/events?app_id=codingbootcamp")
         .then(function (response){
             var date = moment(response.data[0].datetime).format('MM/DD/YYYY');
             console.log(response.data[0].lineup);
@@ -71,4 +71,35 @@ function concertThis(artist) {
             }
             console.log(error.config);
         });
+}
+
+function spotifyThis(song) {
+    spotify
+        .search({ type: 'track', query:song })
+        .then(function(response) {
+            console.log("Artist: " + response.tracks.items[0].artists[0].name);
+            console.log("Title: " + response.tracks.items[0].name);
+            console.log("Album: " + response.tracks.items[0].album.name);
+            console.log("Preview: " + response.tracks.items[0].preview_url)        
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+}
+
+function doThis () {
+    fs 
+        .readFile("random.txt", "utf8", function(error, data) {
+
+        if (error) {
+          return console.log(error);
+        }
+      
+        console.log(data);
+      
+        var dataArr = data.split(",");
+      
+        console.log(dataArr);
+      
+      });
 }
