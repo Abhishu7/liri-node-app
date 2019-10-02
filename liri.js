@@ -6,7 +6,7 @@ var moment = require("moment");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var operand = process.argv[2];
-var input = process.argv[3];
+var input = process.argv.slice(3).join(" ");
 
 if (operand === "movie-this"){
     movieThis(input);
