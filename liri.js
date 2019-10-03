@@ -19,6 +19,11 @@ if (operand === "movie-this"){
 }
 
 function movieThis(movie) {
+    if (!movie) {
+        movie = "Mr Nobody";
+        console.log("If you haven't watched Mr Nobody, then you should: <http://www.imdb.com/title/tt0485947/>");
+        console.log("It's on Netflix!")
+    }
     axios
         .get("http://www.omdbapi.com/?t="+movie+"&y=&plot=short&apikey=trilogy")
         .then(function (response) {
@@ -74,6 +79,10 @@ function concertThis(artist) {
 }
 
 function spotifyThis(song) {
+    if (!song) {
+        song = "The Sign";
+        console.log(song);
+    }
     spotify
         .search({ type: 'track', query:song })
         .then(function(response) {
