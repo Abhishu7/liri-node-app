@@ -20,8 +20,8 @@ if (operand === "movie-this"){
 
 function movieThis(movie) {
     if (!movie) {
-        movie = "Mr Nobody";
-        console.log("If you haven't watched Mr Nobody, then you should: <http://www.imdb.com/title/tt0485947/>");
+        movie = "Mr. Nobody";
+        console.log("If you haven't watched Mr. Nobody, then you should: <http://www.imdb.com/title/tt0485947/>");
         console.log("It's on Netflix!")
     }
     axios
